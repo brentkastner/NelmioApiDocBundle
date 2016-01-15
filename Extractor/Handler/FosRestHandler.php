@@ -83,10 +83,6 @@ class FosRestHandler implements HandlerInterface
             return substr($class, strrpos($class, '\\')+1);
         }
 
-        if (is_array($requirements) && isset($requirements['rule'])) {
-            return (string) $requirements['rule'];
-        }
-
         return (string) $requirements;
     }
 

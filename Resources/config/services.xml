@@ -5,7 +5,6 @@
 
     <parameters>
         <parameter key="nelmio_api_doc.extractor.api_doc_extractor.class">Nelmio\ApiDocBundle\Extractor\ApiDocExtractor</parameter>
-        <parameter key="nelmio_api_doc.form.extension.description_form_type_extension.class">Nelmio\ApiDocBundle\Form\Extension\DescriptionFormTypeExtension</parameter>
         <parameter key="nelmio_api_doc.twig.extension.extra_markdown.class">Nelmio\ApiDocBundle\Twig\Extension\MarkdownExtension</parameter>
         <parameter key="nelmio_api_doc.doc_comment_extractor.class">Nelmio\ApiDocBundle\Util\DocCommentExtractor</parameter>
 
@@ -15,7 +14,6 @@
         <parameter key="nelmio_api_doc.extractor.handler.phpdoc.class">Nelmio\ApiDocBundle\Extractor\Handler\PhpDocHandler</parameter>
 
         <parameter key="nelmio_api_doc.parser.collection_parser.class">Nelmio\ApiDocBundle\Parser\CollectionParser</parameter>
-        <parameter key="nelmio_api_doc.parser.form_errors_parser.class">Nelmio\ApiDocBundle\Parser\FormErrorsParser</parameter>
         <parameter key="nelmio_api_doc.parser.json_serializable_parser.class">Nelmio\ApiDocBundle\Parser\JsonSerializableParser</parameter>
     </parameters>
 
@@ -34,10 +32,6 @@
             <argument type="service" id="nelmio_api_doc.controller_name_parser" />
             <argument type="collection" />
             <argument type="collection" />
-        </service>
-
-        <service id="nelmio_api_doc.form.extension.description_form_type_extension" class="%nelmio_api_doc.form.extension.description_form_type_extension.class%">
-            <tag name="form.type_extension" alias="form" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType" />
         </service>
 
         <service id="nelmio_api_doc.twig.extension.extra_markdown" class="%nelmio_api_doc.twig.extension.extra_markdown.class%">
@@ -64,9 +58,6 @@
         </service>
 
         <service id="nelmio_api_doc.parser.collection_parser" class="%nelmio_api_doc.parser.collection_parser.class%">
-            <tag name="nelmio_api_doc.extractor.parser" />
-        </service>
-        <service id="nelmio_api_doc.parser.form_errors_parser" class="%nelmio_api_doc.parser.form_errors_parser.class%">
             <tag name="nelmio_api_doc.extractor.parser" />
         </service>
 
